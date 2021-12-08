@@ -1,0 +1,4 @@
+https://github.com/c2talon/c2t_cartographyHunt/branches/master/kolmafia/
+https://github.com/Ezandora/Bastille/branches/Release/
+https://github.com/Ezandora/Briefcase/branches/Release/
+https://github.com/Ezandora/Voting-Booth/trunk/Release/
