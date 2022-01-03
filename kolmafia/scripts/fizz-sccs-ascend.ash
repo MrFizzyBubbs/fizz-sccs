@@ -42,7 +42,7 @@ void checkReadyToAscend() {
 		assert(!(badDays contains holiday), `Don't want to ascend during {holiday}`);
 	}
 	
-	assert(my_spleen_use() == spleen_limit() && my_fullness() == fullness_limit() && my_inebriety() == inebriety_limit(), "Organ space available");
+	assert(my_spleen_use() >= spleen_limit() && my_fullness() >= fullness_limit() && my_inebriety() >= inebriety_limit(), "Organ space available");
 	assert(my_adventures() == 0, "Spend your adventures");
 	assert(pvp_attacks_left() == 0, "Spend your pvp fites");
 	assert(get_property('chateauMonster').to_monster() == $monster[ungulith], "Need an ungulith in your chateau painting");
@@ -154,7 +154,7 @@ void ascend(string path, class playerClass, string lifestyle, string moon, item 
 	assert(moonIds contains moon, `Invalid moon {moon}`);
 	int lifestyleId = lifestyleIds[lifestyle];
 	assert(lifestyleIds contains lifestyle, `Invalid lifestyle {lifestyle}`);
-	assert($items[none, astral hot dog dinner, astral six-pack] contains consumable, `Invalid consumable {consumable}`);
+	assert($items[none, astral hot dog dinner, astral six-pack, astral energy drink] contains consumable, `Invalid consumable {consumable}`);
 	assert($items[none, astral bludgeon, astral shield, astral chapeau, astral bracer, astral longbow, astral shorts, astral mace, astral ring, astral statuette, astral pistol, astral mask, astral pet sweater, astral shirt, astral belt] contains pet, `Invalid astral item {pet}`);
 	visit_url('afterlife.php?action=pearlygates');
 	if (consumable != $item[none]) visit_url(`afterlife.php?action=buydeli&whichitem={consumable.to_int()}`);

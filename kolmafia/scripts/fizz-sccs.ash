@@ -138,7 +138,7 @@ void preCoilWire() {
 	smashFreeBarrels();
 	equip($slot[acc2], $item[Powerful Glove]); // optimize equipping and unequipping to buff up
 	prep(quests['Beginning']); // don't equip shavings helmet here to save buff cycle for after coil test
-	cli_execute('mummery myst');
+	if (!get_property('_mummeryUses').contains_text('5')) cli_execute('mummery myst');
 	
 	openQuestZones();
 	digitizeSausageGoblin();
@@ -189,12 +189,12 @@ void main() {
 	if (my_path() != 'Community Service') {
 		checkReadyToAscend();
 		if (can_interact() && user_confirm("Ready to Ascend into Community Service?")) {
-			// ascend('Community Service', $class[Sauceror], 'softcore', 'Wallaby', $item[astral six-pack], $item[none]);
-			if (!visit_url('charpane.php').contains_text('Astral Spirit')) visit_url('ascend.php?action=ascend&confirm=on&confirm2=on');
-			assert(visit_url('charpane.php').contains_text('Astral Spirit'), "Failed to ascend");
-			visit_url('afterlife.php?action=pearlygates');
-			visit_url('afterlife.php?action=buydeli&whichitem=5046');
-			visit_url('afterlife.php?action=ascend&confirmascend=1&whichsign=2&gender=1&whichclass=4&whichpath=25&asctype=2&nopetok=1&noskillsok=1&pwd', true);
+			ascend('Community Service', $class[Sauceror], 'softcore', 'Wallaby', $item[astral six-pack], $item[none]);
+			// if (!visit_url('charpane.php').contains_text('Astral Spirit')) visit_url('ascend.php?action=ascend&confirm=on&confirm2=on');
+			// assert(visit_url('charpane.php').contains_text('Astral Spirit'), "Failed to ascend");
+			// visit_url('afterlife.php?action=pearlygates');
+			// visit_url('afterlife.php?action=buydeli&whichitem=5046');
+			// visit_url('afterlife.php?action=ascend&confirmascend=1&whichsign=2&gender=1&whichclass=4&whichpath=25&asctype=2&nopetok=1&noskillsok=1&pwd', true);
 		} else {
 			abort();
 		}

@@ -8,10 +8,11 @@ import <fizz-sccs-combat.ash>
 pre-coil and leveling events (these restore gear and familiar)
 */
 void digitizeSausageGoblin() {
-	if (get_property('_sourceTerminalDigitizeMonster').to_monster() != $monster[sausage goblin]) {
+	if (get_property('_sourceTerminalDigitizeMonster').to_monster() != $monster[sausage goblin] && get_property('_sausageFights').to_int() == 0) {
 		saveGear($slots[back, off-hand]);
 		equip($slot[back], $item[protonic accelerator pack]);
 		equip($slot[off-hand], $item[Kramco Sausage-o-Matic&trade;]);
+		if (my_hp() < my_maxhp()) cli_execute('hottub');
 		ensureMp(29);
 		adv1($location[Noob Cave], -1, mNew()
 			.mEnsureMonster($monster[sausage goblin])
@@ -38,7 +39,6 @@ void getNinjaCostume() {
 	if (!have($item[li'l ninja costume])) {
 		saveGear($slots[acc3]);
 		equip($slot[acc3], $item[Lil' Doctor&trade; Bag]);
-		if (my_hp() < my_maxhp() * 0.9) cli_execute('hottub');
 		
 		c2t_cartographyHunt($location[The Haiku Dungeon], $monster[amateur ninja]);
 		run_combat(mNew()
@@ -231,6 +231,8 @@ void fightSnojo() {
 				.mCandyKill());
 		}
 	}
+	
+	if (have($effect[Relaxed Muscles])) cli_execute('hottub');
 }
 
 void evokeEldritch() {
@@ -334,7 +336,7 @@ void chainProfessorLectures() {
 		saveGear($slots[off-hand, acc1, acc2, acc3]);
 		saveFamiliar();
 		use_familiar($familiar[Pocket Professor]);
-		cli_execute('mummery hp');
+		if (!get_property('_mummeryUses').contains_text('6')) cli_execute('mummery hp');
 		equip($slot[off-hand], $item[Kramco Sausage-o-Matic&trade;]);
 		equip($slot[acc1], $item[hewn moon-rune spoon]);
 		equip($slot[acc2], $item[Brutal brogues]);
