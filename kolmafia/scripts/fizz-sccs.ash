@@ -8,6 +8,12 @@ import <fizz-sccs-events.ash>
 import <fizz-sccs-ascend.ash>
 
 /*
+Boolean indicating if the script should skip the user confirmation before ascending
+*/
+if (!property_exists('fizz_sccs_noconfirm', false))
+	set_property('fizz_sccs_noconfirm', 'false');
+
+/*
 Name of the clan that the script will join for the VIP lounge
 */
 if (!property_exists('fizz_sccs_vipClan', false))
@@ -44,7 +50,7 @@ void enterScript() {
 	set_property('autoSatisfyWithNPCs', 'true');
 	// buy from coinmasters/hermit
 	set_property('autoSatisfyWithCoinmasters', 'true');	
-	// no mana burn/every mp is sacred
+	// no mana burn, every mp is sacred
 	set_property('manaBurningThreshold', '-0.05');
 	// custom combat script
 	set_property('customCombatScript', 'fizz_sccs');
@@ -136,13 +142,13 @@ void preCoilWire() {
 	pantagramming();
 	scavengeDaycare();
 	smashFreeBarrels();
+	openQuestZones();
 	equip($slot[acc2], $item[Powerful Glove]); // optimize equipping and unequipping to buff up
 	prep(quests['Beginning']); // don't equip shavings helmet here to save buff cycle for after coil test
 	if (!get_property('_mummeryUses').contains_text('5')) cli_execute('mummery myst');
 	
-	openQuestZones();
 	digitizeSausageGoblin();
-	fightProtonicGhost();
+	getMimicCandy();
 	getNinjaCostume(); // need a non-protonic ghost combat to start the digitize counter
 	fightTropicalSkeleton();
 	
@@ -170,9 +176,8 @@ void postCoilWire() {
 	acquire($item[turtle totem]);
 	
 	if (!have($effect[Synthesis: Smart])) {
-		acquireFamEquip($familiar[Peppermint Rhino]);
 		use_skill(1, $skill[Chubby and Plump]);
-		sweet_synthesis($item[licorice boa], $item[Chubby and Plump bar]);
+		sweet_synthesis($item[bag of many confections], $item[Chubby and Plump bar]);
 		check($effect[Synthesis: Smart]);
 	}
 
@@ -188,13 +193,8 @@ void postCoilWire() {
 void main() {
 	if (my_path() != 'Community Service') {
 		checkReadyToAscend();
-		if (can_interact() && user_confirm("Ready to Ascend into Community Service?")) {
+		if (can_interact() && (get_property('fizz_sccs_noconfirm').to_boolean() || user_confirm("Ready to Ascend into Community Service?"))) {
 			ascend('Community Service', $class[Sauceror], 'softcore', 'Wallaby', $item[astral six-pack], $item[none]);
-			// if (!visit_url('charpane.php').contains_text('Astral Spirit')) visit_url('ascend.php?action=ascend&confirm=on&confirm2=on');
-			// assert(visit_url('charpane.php').contains_text('Astral Spirit'), "Failed to ascend");
-			// visit_url('afterlife.php?action=pearlygates');
-			// visit_url('afterlife.php?action=buydeli&whichitem=5046');
-			// visit_url('afterlife.php?action=ascend&confirmascend=1&whichsign=2&gender=1&whichclass=4&whichpath=25&asctype=2&nopetok=1&noskillsok=1&pwd', true);
 		} else {
 			abort();
 		}

@@ -154,7 +154,7 @@ void ascend(string path, class playerClass, string lifestyle, string moon, item 
 	assert(moonIds contains moon, `Invalid moon {moon}`);
 	int lifestyleId = lifestyleIds[lifestyle];
 	assert(lifestyleIds contains lifestyle, `Invalid lifestyle {lifestyle}`);
-	assert($items[none, astral hot dog dinner, astral six-pack, astral energy drink] contains consumable, `Invalid consumable {consumable}`);
+	assert($items[none, astral hot dog dinner, astral six-pack, [10883]astral energy drink] contains consumable, `Invalid consumable {consumable}`);
 	assert($items[none, astral bludgeon, astral shield, astral chapeau, astral bracer, astral longbow, astral shorts, astral mace, astral ring, astral statuette, astral pistol, astral mask, astral pet sweater, astral shirt, astral belt] contains pet, `Invalid astral item {pet}`);
 	visit_url('afterlife.php?action=pearlygates');
 	if (consumable != $item[none]) visit_url(`afterlife.php?action=buydeli&whichitem={consumable.to_int()}`);

@@ -8,7 +8,7 @@ import <fizz-sccs-combat.ash>
 pre-coil and leveling events (these restore gear and familiar)
 */
 void digitizeSausageGoblin() {
-	if (get_property('_sourceTerminalDigitizeMonster').to_monster() != $monster[sausage goblin] && get_property('_sausageFights').to_int() == 0) {
+	if (get_property('_sausageFights').to_int() == 0) {
 		saveGear($slots[back, off-hand]);
 		equip($slot[back], $item[protonic accelerator pack]);
 		equip($slot[off-hand], $item[Kramco Sausage-o-Matic&trade;]);
@@ -25,13 +25,17 @@ void digitizeSausageGoblin() {
 	}
 }
 
-void fightProtonicGhost() {
+void getMimicCandy() {
 	location ghostLocation = get_property('ghostLocation').to_location();
 	if (ghostLocation != $location[none]) {
 		saveGear($slots[back]);
+		saveFamiliar();
 		equip($slot[back], $item[protonic accelerator pack]);
+		use_familiar($familiar[Stocking Mimic]);
 		adv1(ghostLocation, -1, mNew().mBustGhost());
+		check($item[bag of many confections]);
 		restoreGear();
+		restoreFamiliar();
 	}
 }
 
@@ -78,7 +82,7 @@ void fightTropicalSkeleton() {
 }
 
 void fightDigitizedMonster() {
-	if (get_property('_sourceTerminalDigitizeMonster') != '' && get_property('_sourceTerminalDigitizeMonsterCount') == '0') {
+	if (get_property('_sourceTerminalDigitizeMonster') != '' && get_property('_sourceTerminalDigitizeMonsterCount').to_int() == 0) {
 		saveGear($slots[back]);
 		equip($slot[back], $item[protonic accelerator pack]);
 		ensureHp();
@@ -95,6 +99,16 @@ void fightDigitizedMonster() {
 			
 		check($effect[Giant Growth]);
 		assert(get_property('ghostLocation').to_location() != $location[none], 'Failed to get protonic ghost notice');
+		restoreGear();
+	}
+}
+
+void fightProtonicGhost() {
+	location ghostLocation = get_property('ghostLocation').to_location();
+	if (ghostLocation != $location[none]) {
+		saveGear($slots[back]);
+		equip($slot[back], $item[protonic accelerator pack]);
+		adv1(ghostLocation, -1, mNew().mBustGhost());
 		restoreGear();
 	}
 }
