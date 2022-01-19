@@ -312,7 +312,6 @@ void doDmt() {
 		saveFamiliar();
 		equip($slot[acc2], $item[Lil' Doctor&trade; Bag]);
 		use_familiar($familiar[Machine Elf]);
-		cli_execute('mummery meat');
 		
 		while ($familiar[Machine Elf].fights_today < $familiar[Machine Elf].fights_limit) {
 			ensureHp(0.8);
