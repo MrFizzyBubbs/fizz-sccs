@@ -45,7 +45,6 @@ void checkReadyToAscend() {
 	assert(my_spleen_use() >= spleen_limit() && my_fullness() >= fullness_limit() && my_inebriety() >= inebriety_limit(), "Organ space available");
 	assert(my_adventures() == 0, "Spend your adventures");
 	assert(pvp_attacks_left() == 0, "Spend your pvp fites");
-	assert(get_property("chateauMonster").to_monster() == $monster[ungulith], "Need an ungulith in your chateau painting");
 	
 	prepareAscension(
 		$item[Little Geneticist DNA-Splicing Lab], 

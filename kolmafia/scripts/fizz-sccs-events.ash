@@ -317,7 +317,7 @@ void doDmt() {
 			
 			if (get_property("_sourceTerminalPortscanUses").to_int() < 1)
 				adv1($location[The Deep Machine Tunnels], -1, mNew()
-					.mSkill($skill[Portscan]))
+					.mSkill($skill[Portscan])
 					.mCursing()
 					.mCandyKill());
 			else
