@@ -48,7 +48,7 @@ boolean have(effect ef) {
 
 void acquire(effect ef) {
 	if (ef != $effect[none]) {
-		assert(have(ef) || !ef.default.starts_with('cargo'), `Can't obtain {ef}?`);
+		assert(have(ef) || !ef.default.starts_with("cargo"), `Can't obtain {ef}?`);
 		if (!have(ef)) cli_execute(ef.default);
 		assert(have(ef), `Failed to acquire effect {ef}`);
 	}
@@ -87,14 +87,14 @@ int [string] clanCache;
 void joinClan(string target) {
 	if (get_clan_name() != target) {
 		if (!(clanCache contains target)) {
-			string recruiter = visit_url('clan_signup.php');
-			matcher m = create_matcher('<option value=([0-9]+)>([^<]+)</option>', recruiter);
+			string recruiter = visit_url("clan_signup.php");
+			matcher m = create_matcher("<option value=([0-9]+)>([^<]+)</option>", recruiter);
 			while (m.find()) {
 				clanCache[m.group(2)] = m.group(1).to_int();
 			}
 		}
-		visit_url('showclan.php?whichclan=' + clanCache[target] + '&action=joinclan&confirm=on&pwd=' + my_hash());
-		assert(get_clan_name() == target, 'Failed to switch clans to ' + target + '. Did you spell it correctly? Are you whitelisted?');
+		visit_url("showclan.php?whichclan=" + clanCache[target] + "&action=joinclan&confirm=on&pwd=" + my_hash());
+		assert(get_clan_name() == target, "Failed to switch clans to " + target + ". Did you spell it correctly? Are you whitelisted?");
 	}
 }
 

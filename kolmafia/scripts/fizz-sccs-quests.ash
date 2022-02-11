@@ -3,22 +3,22 @@ import <fizz-sccs-lib.ash>
 record QuestRecord { int id; string service; };
 
 QuestRecord [string] quests = {
-	'HP': new QuestRecord(1, 'Donate Blood'),
-	'Muscle': new QuestRecord(2, 'Feed The Children'),
-	'Mysticality': new QuestRecord(3, 'Build Playground Mazes'),
-	'Moxie': new QuestRecord(4, 'Feed Conspirators'),
-	'FamiliarWeight': new QuestRecord(5, 'Breed More Collies'),
-	'WeaponDamage': new QuestRecord(6, 'Reduce Gazelle Population'),
-	'SpellDamage': new QuestRecord(7, 'Make Sausage'),
-	'CombatFrequency': new QuestRecord(8, 'Be a Living Statue'),
-	'ItemDrop': new QuestRecord(9, 'Make Margaritas'),
-	'HotResist': new QuestRecord(10, 'Clean Steam Tunnels'),
-	'CoilWire': new QuestRecord(11, 'Coil Wire'),
-	'Donate': new QuestRecord(30, 'Donate Your Body To Science'),
+	"HP": new QuestRecord(1, "Donate Blood"),
+	"Muscle": new QuestRecord(2, "Feed The Children"),
+	"Mysticality": new QuestRecord(3, "Build Playground Mazes"),
+	"Moxie": new QuestRecord(4, "Feed Conspirators"),
+	"FamiliarWeight": new QuestRecord(5, "Breed More Collies"),
+	"WeaponDamage": new QuestRecord(6, "Reduce Gazelle Population"),
+	"SpellDamage": new QuestRecord(7, "Make Sausage"),
+	"CombatFrequency": new QuestRecord(8, "Be a Living Statue"),
+	"ItemDrop": new QuestRecord(9, "Make Margaritas"),
+	"HotResist": new QuestRecord(10, "Clean Steam Tunnels"),
+	"CoilWire": new QuestRecord(11, "Coil Wire"),
+	"Donate": new QuestRecord(30, "Donate Your Body To Science"),
 	
-	'Beginning': new QuestRecord(100, ''),
-	'Leveling': new QuestRecord(101, ''),
-	'DeepDark': new QuestRecord(102, ''),
+	"Beginning": new QuestRecord(100, ""),
+	"Leveling": new QuestRecord(101, ""),
+	"DeepDark": new QuestRecord(102, ""),
 };
 
 record QuestPrepRecord { 
@@ -31,7 +31,7 @@ record QuestPrepRecord {
 
 QuestPrepRecord [int] questPreps;
 
-questPreps[quests['Beginning'].id] = new QuestPrepRecord(
+questPreps[quests["Beginning"].id] = new QuestPrepRecord(
 	$effects[Inscrutable Gaze], 
 	$effects[none], 
 	{
@@ -44,11 +44,11 @@ questPreps[quests['Beginning'].id] = new QuestPrepRecord(
 		$slot[acc2]: $item[Powerful Glove],
 		$slot[acc3]: $item[Kremlin's Greatest Briefcase]
 	}, 
-	'', 
+	"", 
 	$familiar[Melodramedary]
 );
 
-questPreps[quests['CoilWire'].id] = new QuestPrepRecord(
+questPreps[quests["CoilWire"].id] = new QuestPrepRecord(
 	$effects[none], 
 	$effects[none], 
 	{
@@ -60,11 +60,11 @@ questPreps[quests['CoilWire'].id] = new QuestPrepRecord(
 		$slot[acc2]: $item[Powerful Glove],
 		$slot[acc3]: $item[Kremlin's Greatest Briefcase]
 	}, 
-	'heck thrill', 
+	"heck thrill", 
 	$familiar[none]
 );
 
-questPreps[quests['Leveling'].id] = new QuestPrepRecord(
+questPreps[quests["Leveling"].id] = new QuestPrepRecord(
 	$effects[
 		Billiards Belligerence,
 		Broad-Spectrum Vaccine,
@@ -121,11 +121,11 @@ questPreps[quests['Leveling'].id] = new QuestPrepRecord(
 		$slot[acc2]: $item[gold detective badge],
 		$slot[acc3]: $item[your cowboy boots]
 	}, 
-	'heck thrill', 
+	"heck thrill", 
 	$familiar[Melodramedary]
 );
 
-questPreps[quests['Muscle'].id] = new QuestPrepRecord(
+questPreps[quests["Muscle"].id] = new QuestPrepRecord(
 	$effects[Expert Oiliness, Quiet Determination, Rage of the Reindeer], 
 	$effects[Giant Growth], 
 	{
@@ -135,11 +135,11 @@ questPreps[quests['Muscle'].id] = new QuestPrepRecord(
 		$slot[acc1]: $item[Brutal brogues],
 		$slot[acc3]: $item[&quot;I Voted!&quot; sticker]
 	}, 
-	'muscle', 
+	"muscle", 
 	$familiar[none]
 );
 
-questPreps[quests['Moxie'].id] = new QuestPrepRecord(
+questPreps[quests["Moxie"].id] = new QuestPrepRecord(
 	$effects[Expert Oiliness, Quiet Desperation, Disco Fever, Pomp & Circumsands], 
 	$effects[none], 
 	{
@@ -149,11 +149,11 @@ questPreps[quests['Moxie'].id] = new QuestPrepRecord(
 		$slot[acc2]: $item[Beach Comb],
 		$slot[acc3]: $item[&quot;I Voted!&quot; sticker]
 	}, 
-	'moxie', 
+	"moxie", 
 	$familiar[none]
 );
 
-questPreps[quests['HP'].id] = new QuestPrepRecord(
+questPreps[quests["HP"].id] = new QuestPrepRecord(
 	$effects[A Few Extra Pounds, Reptilian Fortitude, Quiet Determination, Power Ballad of the Arrowsmith], // TODO perm Song of Starch
 	$effects[none], 
 	{
@@ -166,11 +166,11 @@ questPreps[quests['HP'].id] = new QuestPrepRecord(
 		$slot[acc2]: $item[Eight Days a Week Pill Keeper],
 		$slot[acc3]: $item[Kremlin's Greatest Briefcase]
 	}, 
-	'', 
+	"", 
 	$familiar[none]
 );
 
-questPreps[quests['Mysticality'].id] = new QuestPrepRecord(
+questPreps[quests["Mysticality"].id] = new QuestPrepRecord(
 	$effects[Quiet Judgement], 
 	$effects[none], 
 	{
@@ -179,11 +179,11 @@ questPreps[quests['Mysticality'].id] = new QuestPrepRecord(
 		$slot[acc1]: $item[battle broom],
 		$slot[acc3]: $item[&quot;I Voted!&quot; sticker]
 	}, 
-	'mysticality', 
+	"mysticality", 
 	$familiar[none]
 );
 
-questPreps[quests['HotResist'].id] = new QuestPrepRecord(
+questPreps[quests["HotResist"].id] = new QuestPrepRecord(
 	$effects[Astral Shell, Elemental Saucesphere, Feeling Peaceful, Empathy, Leash of Linguini], 
 	$effects[Fireproof Foam Suit],
 	{
@@ -195,11 +195,11 @@ questPreps[quests['HotResist'].id] = new QuestPrepRecord(
 		$slot[acc3]: $item[Kremlin's Greatest Briefcase],
 		$slot[familiar]: $item[cracker]
 	}, 
-	'vampire hold', 
+	"vampire hold", 
 	$familiar[Exotic Parrot]
 );
 
-questPreps[quests['CombatFrequency'].id] = new QuestPrepRecord(
+questPreps[quests["CombatFrequency"].id] = new QuestPrepRecord(
 	$effects[
 		Feeling Lonely,
 		Gummed Shoes,
@@ -217,11 +217,11 @@ questPreps[quests['CombatFrequency'].id] = new QuestPrepRecord(
 		$slot[pants]: $item[pantogram pants],
 		$slot[acc3]: $item[Kremlin's Greatest Briefcase]
 	}, 
-	'', 
+	"", 
 	$familiar[Disgeist]
 );
 
-questPreps[quests['FamiliarWeight'].id] = new QuestPrepRecord(
+questPreps[quests["FamiliarWeight"].id] = new QuestPrepRecord(
 	$effects[Empathy, Leash of Linguini, Robot Friends, Do I Know You From Somewhere?, Human-Machine Hybrid, Blood Bond],
 	$effects[Meteor Showered, Open Heart Surgery, Human-Fish Hybrid],
 	{
@@ -233,11 +233,11 @@ questPreps[quests['FamiliarWeight'].id] = new QuestPrepRecord(
 		$slot[acc3]: $item[Beach Comb],
 		$slot[familiar]: $item[cracker]
 	}, 
-	'', 
+	"", 
 	$familiar[Exotic Parrot]
 );
 
-questPreps[quests['WeaponDamage'].id] = new QuestPrepRecord(
+questPreps[quests["WeaponDamage"].id] = new QuestPrepRecord(
 	$effects[
 		Bow-Legged Swagger,
 		Cowrruption,
@@ -263,11 +263,11 @@ questPreps[quests['WeaponDamage'].id] = new QuestPrepRecord(
 		$slot[acc2]: $item[Powerful Glove],
 		$slot[acc3]: $item[Kremlin's Greatest Briefcase]
 	}, 
-	'', 
+	"", 
 	$familiar[none]
 );
 
-questPreps[quests['DeepDark'].id] = new QuestPrepRecord(
+questPreps[quests["DeepDark"].id] = new QuestPrepRecord(
 	$effects[Astral Shell, Elemental Saucesphere, Feeling Peaceful, Empathy, Leash of Linguini], 
 	$effects[none],
 	{
@@ -280,11 +280,11 @@ questPreps[quests['DeepDark'].id] = new QuestPrepRecord(
 		$slot[acc3]: $item[Beach Comb],
 		$slot[familiar]: $item[cracker]
 	}, 
-	'', 
+	"", 
 	$familiar[Exotic Parrot]
 );
 
-questPreps[quests['SpellDamage'].id] = new QuestPrepRecord(
+questPreps[quests["SpellDamage"].id] = new QuestPrepRecord(
 	$effects[
 		Cowrruption,
 		Warlock\, Warstock\, and Warbarrel,
@@ -308,11 +308,11 @@ questPreps[quests['SpellDamage'].id] = new QuestPrepRecord(
 		$slot[acc3]: $item[hewn moon-rune spoon],
 		$slot[familiar]: $item[enchanted fire extinguisher]
 	}, 
-	'', 
+	"", 
 	$familiar[Left-Hand Man]
 );
 
-questPreps[quests['ItemDrop'].id] = new QuestPrepRecord(
+questPreps[quests["ItemDrop"].id] = new QuestPrepRecord(
 	$effects[
 		Steely-Eyed Squint,
 		// Certainty,
@@ -338,24 +338,24 @@ questPreps[quests['ItemDrop'].id] = new QuestPrepRecord(
 		$slot[acc3]: $item[government-issued night-vision goggles],
 		$slot[familiar]: $item[li'l ninja costume]
 	}, 
-	'', 
+	"", 
 	$familiar[Trick-or-Treating Tot]
 );
 
 void prep(QuestRecord quest) {
 	QuestPrepRecord data = questPreps[quest.id];
 	item back = data.equipment[$slot[back]];
-	assert(back == $item[none] || data.retrocape == '', `Multiple back items for {quest.id}`);
+	assert(back == $item[none] || data.retrocape == "", `Multiple back items for {quest.id}`);
 	
 	// TODO handle shrugging extra songs?
 	foreach ef in data.acquire { acquire(ef); }
 	foreach ef in data.check { check(ef); }
 	
 	if (data.fam != $familiar[none]) use_familiar(data.fam);
-	if (data.retrocape != '') cli_execute(`retrocape {data.retrocape}`);
+	if (data.retrocape != "") cli_execute(`retrocape {data.retrocape}`);
 	foreach s, it in data.equipment {
 		if (!have(it)) {
-			if (it.get_related('fold') contains it) cli_execute(`fold {it}`);
+			if (it.get_related("fold") contains it) cli_execute(`fold {it}`);
 			else abort(`Unable to find {it}`);
 		}
 		equip(s, it);
@@ -363,13 +363,13 @@ void prep(QuestRecord quest) {
 }
 
 boolean haveQuest(QuestRecord quest) {
-	if (quest.id == quests['Donate'].id) return visit_url('council.php').contains_text(`<input type=hidden name=option value={quest.id}>`);
-	assert(quest.id > 0 && quest.id <= quests['CoilWire'].id, `Invalid quest {quest.id}: {quest.service}!`);
-	return !get_property('csServicesPerformed').contains_text(quest.service);
+	if (quest.id == quests["Donate"].id) return visit_url("council.php").contains_text(`<input type=hidden name=option value={quest.id}>`);
+	assert(quest.id > 0 && quest.id <= quests["CoilWire"].id, `Invalid quest {quest.id}: {quest.service}!`);
+	return !get_property("csServicesPerformed").contains_text(quest.service);
 }
 
 int getQuestCost(QuestRecord quest) {
-	string page = visit_url('council.php');
+	string page = visit_url("council.php");
 	matcher m = create_matcher(`whichchoice value=1089><input type=hidden name=option value={quest.id}.*?Perform Service [(](\\d+) Adventures[)]`, page);
 	assert(m.find(), `Failed to find quest {quest.id}: {quest.service}`);
 	return group(m, 1).to_int();
@@ -377,15 +377,15 @@ int getQuestCost(QuestRecord quest) {
 }
 
 boolean isQuestThresholdMet(QuestRecord quest) {
-	if (quest.id >= quests['CoilWire'].id) return true;
+	if (quest.id >= quests["CoilWire"].id) return true;
 
-	string [int] arr = split_string(get_property('fizz_sccs_thresholds'), ',');
+	string [int] arr = split_string(get_property("fizz_sccs_thresholds"), ",");
 	int threshold = arr[quest.id - 1].to_int();
 
 	if (count(arr) == 10 && threshold > 0 && threshold <= 60) {
 		return getQuestCost(quest) <= threshold;
 	} else {
-		print("Warning: the fizz_sccs_thresholds property is broken for this quest; defaulting to a 1-turn threshold.", 'red');
+		print("Warning: the fizz_sccs_thresholds property is broken for this quest; defaulting to a 1-turn threshold.", "red");
 		return getQuestCost(quest) <= 1;
 	}
 }
@@ -395,10 +395,10 @@ void prepAndDoQuest(QuestRecord quest) {
 		prep(quest);
 		
 		assert(isQuestThresholdMet(quest), `Failed to meet threshold for quest {quest.id}: {quest.service}`);
-		assert(!get_property('fizz_haltBeforeTest').to_boolean(), `Halting before quest {quest.id}: {quest.service}`);
+		assert(!get_property("fizz_haltBeforeTest").to_boolean(), `Halting before quest {quest.id}: {quest.service}`);
 		int before = my_turncount();
 		
-		visit_url('council.php');
+		visit_url("council.php");
 		visit_url(`choice.php?whichchoice=1089&option={quest.id}`);
 		assert(!haveQuest(quest), `Couldn't complete quest {quest.id}: {quest.service}?`);
 		

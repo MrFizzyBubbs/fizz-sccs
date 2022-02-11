@@ -36,8 +36,8 @@ void prepareAscension(item workshed, item garden, item eudora, item chateauDesk,
 }
 
 void checkReadyToAscend() {
-	boolean [string] badDays = $strings['april fool\'s day'];
-	string [int] today = holiday().split_string('/');
+	boolean [string] badDays = $strings["april fool\'s day"];
+	string [int] today = holiday().split_string("/");
 	foreach _, holiday in today {
 		assert(!(badDays contains holiday), `Don't want to ascend during {holiday}`);
 	}
@@ -45,7 +45,7 @@ void checkReadyToAscend() {
 	assert(my_spleen_use() >= spleen_limit() && my_fullness() >= fullness_limit() && my_inebriety() >= inebriety_limit(), "Organ space available");
 	assert(my_adventures() == 0, "Spend your adventures");
 	assert(pvp_attacks_left() == 0, "Spend your pvp fites");
-	assert(get_property('chateauMonster').to_monster() == $monster[ungulith], "Need an ungulith in your chateau painting");
+	assert(get_property("chateauMonster").to_monster() == $monster[ungulith], "Need an ungulith in your chateau painting");
 	
 	prepareAscension(
 		$item[Little Geneticist DNA-Splicing Lab], 
@@ -58,85 +58,85 @@ void checkReadyToAscend() {
 }
 
 int [string] moonIds {
-	'Mongoose': 1,
-	'Wallaby': 2,
-	'Vole': 3,
-	'Platypus': 4,
-	'Opossum': 5,
-	'Marmot': 6,
-	'Wombat': 7,
-	'Blendar': 8,
-	'Packrat': 9
+	"Mongoose": 1,
+	"Wallaby": 2,
+	"Vole": 3,
+	"Platypus": 4,
+	"Opossum": 5,
+	"Marmot": 6,
+	"Wombat": 7,
+	"Blendar": 8,
+	"Packrat": 9
 };
 
 int [string] pathIds {
-	'Unrestricted': 0,
-	'Boozetafarian': 1,
-	'Teetotaler': 2,
-	'Oxygenarian': 3,
-	'Bees Hate You': 4,
-	'Way of the Surprising Fist': 6,
-	'Trendy': 7,
-	'Avatar of Boris': 8,
-	'Bugbear Invasion': 9,
-	'Zombie Slayer': 10,
-	'Class Act': 11,
-	'Avatar of Jarlsberg': 12,
-	'BIG!': 14,
-	'KOLHS': 15,
-	'Class Act II: A Class For Pigs': 16,
-	'Avatar of Sneaky Pete': 17,
-	'Slow and Steady': 18,
-	'Heavy Rains': 19,
-	'Picky': 21,
-	'Standard': 22,
-	'Actually Ed the Undying': 23,
-	'One Crazy Random Summer': 24,
-	'Community Service': 25,
-	'Avatar of West of Loathing': 26,
-	'The Source': 27,
-	'Nuclear Autumn': 28,
-	'Gelatinous Noob': 29,
-	'License to Adventure': 30,
-	'Live. Ascend. Repeat.': 31,
-	'Pocket Familiars': 32,
-	'G-Lover': 33,
-	'Disguises Delimit': 34,
-	'Dark Gyffte': 35,
-	'Two Crazy Random Summer': 36,
-	'Kingdom of Exploathing': 37,
-	'Path of the Plumber': 38,
-	'Low Key Summer': 39,
-	'Grey Goo': 40,
-	'You, Robot': 41
+	"Unrestricted": 0,
+	"Boozetafarian": 1,
+	"Teetotaler": 2,
+	"Oxygenarian": 3,
+	"Bees Hate You": 4,
+	"Way of the Surprising Fist": 6,
+	"Trendy": 7,
+	"Avatar of Boris": 8,
+	"Bugbear Invasion": 9,
+	"Zombie Slayer": 10,
+	"Class Act": 11,
+	"Avatar of Jarlsberg": 12,
+	"BIG!": 14,
+	"KOLHS": 15,
+	"Class Act II: A Class For Pigs": 16,
+	"Avatar of Sneaky Pete": 17,
+	"Slow and Steady": 18,
+	"Heavy Rains": 19,
+	"Picky": 21,
+	"Standard": 22,
+	"Actually Ed the Undying": 23,
+	"One Crazy Random Summer": 24,
+	"Community Service": 25,
+	"Avatar of West of Loathing": 26,
+	"The Source": 27,
+	"Nuclear Autumn": 28,
+	"Gelatinous Noob": 29,
+	"License to Adventure": 30,
+	"Live. Ascend. Repeat.": 31,
+	"Pocket Familiars": 32,
+	"G-Lover": 33,
+	"Disguises Delimit": 34,
+	"Dark Gyffte": 35,
+	"Two Crazy Random Summer": 36,
+	"Kingdom of Exploathing": 37,
+	"Path of the Plumber": 38,
+	"Low Key Summer": 39,
+	"Grey Goo": 40,
+	"You, Robot": 41
 };
 
 int [string] lifestyleIds {
-	'casual': 1,
-	'softcore': 2,
-	'normal': 2,
-	'hardcore': 3
+	"casual": 1,
+	"softcore": 2,
+	"normal": 2,
+	"hardcore": 3
 };
 
 boolean [class] getPathClasses(string path) {
 	switch (path) {
-		case 'Avatar of Boris':
+		case "Avatar of Boris":
 			return $classes[Avatar of Boris];
-		case 'Zombie Slayer':
+		case "Zombie Slayer":
 			return $classes[Zombie Master];
-		case 'Avatar of Jarlsberg':
+		case "Avatar of Jarlsberg":
 			return $classes[Avatar of Jarlsberg];
-		case 'Avatar of Sneaky Pete':
+		case "Avatar of Sneaky Pete":
 			return $classes[Avatar of Sneaky Pete];
-		case 'Actually Ed the Undying':
+		case "Actually Ed the Undying":
 			return $classes[Ed the Undying];
-		case 'Avatar of West of Loathing':
+		case "Avatar of West of Loathing":
 			return $classes[Cow Puncher, Beanslinger, Snake Oiler];
-		case 'Gelatinous Noob':
+		case "Gelatinous Noob":
 			return $classes[Gelatinous Noob];
-		case 'Dark Gyffte':
+		case "Dark Gyffte":
 			return $classes[Vampyre];
-		case 'Path of the Plumber':
+		case "Path of the Plumber":
 			return $classes[Plumber];
 		default:
 			return $classes[Seal Clubber, Turtle Tamer, Pastamancer, Sauceror, Disco Bandit, Accordion Thief];
@@ -144,9 +144,9 @@ boolean [class] getPathClasses(string path) {
 }
 
 void ascend(string path, class playerClass, string lifestyle, string moon, item consumable, item pet) {
-	if (!visit_url('charpane.php').contains_text('Astral Spirit')) visit_url('ascend.php?action=ascend&confirm=on&confirm2=on');
+	if (!visit_url("charpane.php").contains_text("Astral Spirit")) visit_url("ascend.php?action=ascend&confirm=on&confirm2=on");
 	
-	assert(visit_url('charpane.php').contains_text('Astral Spirit'), 'Failed to ascend');
+	assert(visit_url("charpane.php").contains_text("Astral Spirit"), "Failed to ascend");
 	assert(getPathClasses(path) contains playerClass, `Invalid class {playerClass} for this path`);
 	int pathId = pathIds[path];
 	assert(pathIds contains path, `Invalid path {path}`);
@@ -156,9 +156,9 @@ void ascend(string path, class playerClass, string lifestyle, string moon, item 
 	assert(lifestyleIds contains lifestyle, `Invalid lifestyle {lifestyle}`);
 	assert($items[none, astral hot dog dinner, astral six-pack, [10883]astral energy drink] contains consumable, `Invalid consumable {consumable}`);
 	assert($items[none, astral bludgeon, astral shield, astral chapeau, astral bracer, astral longbow, astral shorts, astral mace, astral ring, astral statuette, astral pistol, astral mask, astral pet sweater, astral shirt, astral belt] contains pet, `Invalid astral item {pet}`);
-	visit_url('afterlife.php?action=pearlygates');
+	visit_url("afterlife.php?action=pearlygates");
 	if (consumable != $item[none]) visit_url(`afterlife.php?action=buydeli&whichitem={consumable.to_int()}`);
 	if (pet != $item[none]) visit_url(`afterlife.php?action=buyarmory&whichitem={pet.to_int()}`);
 	visit_url(`afterlife.php?action=ascend&confirmascend=1&whichsign={moonId}&gender=1&whichclass={playerClass.to_int()}&whichpath={pathId}&asctype={lifestyleId}&nopetok=1&noskillsok=1&pwd`, true);
-	assert(!visit_url('charpane.php').contains_text('Astral Spirit'), 'Failed to reincarnate');
+	assert(!visit_url("charpane.php").contains_text("Astral Spirit"), "Failed to reincarnate");
 }

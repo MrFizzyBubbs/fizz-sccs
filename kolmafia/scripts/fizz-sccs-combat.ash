@@ -4,7 +4,7 @@ buffer mNew() {
 }
 
 buffer mStep(buffer macro, string next) {
-	return macro.append(next).append(';');
+	return macro.append(next).append(";");
 }
 
 buffer mAbort(buffer macro, string message) {
@@ -12,15 +12,15 @@ buffer mAbort(buffer macro, string message) {
 }
 
 buffer mRepeat(buffer macro) {
-	return macro.mStep('repeat');
+	return macro.mStep("repeat");
 }
 
 buffer mRunaway(buffer macro) {
-	return macro.mStep('runaway');
+	return macro.mStep("runaway");
 }
 
 buffer mAttackRepeat(buffer macro) {
-	return macro.mStep('attack').mRepeat();
+	return macro.mStep("attack").mRepeat();
 }
 
 buffer mSkill(buffer macro, skill sk) {
@@ -28,7 +28,7 @@ buffer mSkill(buffer macro, skill sk) {
 }
 
 buffer mTrySkill(buffer macro, skill sk) {
-	return macro.mStep(`if hasskill {sk.to_int()}`).mSkill(sk).mStep('endif');
+	return macro.mStep(`if hasskill {sk.to_int()}`).mSkill(sk).mStep("endif");
 }
 
 buffer mItem(buffer macro, item it) {
@@ -36,26 +36,26 @@ buffer mItem(buffer macro, item it) {
 }
 
 buffer mBanish(buffer macro, monster mon, skill banisher) {
-	return macro.mStep(`if monsterid {mon.id}`).mSkill(banisher).mStep('endif');
+	return macro.mStep(`if monsterid {mon.id}`).mSkill(banisher).mStep("endif");
 }
 
 buffer mIfMonster(buffer macro, monster mon, buffer action) {
-	return macro.mStep(`if monsterid {mon.id}`).append(action).mStep('endif');
+	return macro.mStep(`if monsterid {mon.id}`).append(action).mStep("endif");
 }
 
 buffer mEnsureMonster(buffer macro, monster mon) {
-	return macro.mStep(`if !monsterid {mon.id}`).mAbort(`Expected {mon.name}`).mStep('endif');
+	return macro.mStep(`if !monsterid {mon.id}`).mAbort(`Expected {mon.name}`).mStep("endif");
 }
 
 buffer mEnsureMonster(buffer macro, boolean [monster] mons) {
 	buffer predicate;
 	foreach mon in mons {
 		if (predicate.length() > 0) {
-			predicate.append(' || ');
+			predicate.append(" || ");
 		}
 		predicate.append(`monsterid {mon.id}`);
 	}
-	return macro.mStep(`if !({predicate})`).mAbort('Unexpected monster encountered').mStep('endif');
+	return macro.mStep(`if !({predicate})`).mAbort("Unexpected monster encountered").mStep("endif");
 }
 
 buffer mEnsureMonster(buffer macro, location loc) {
@@ -65,11 +65,11 @@ buffer mEnsureMonster(buffer macro, location loc) {
 }
 
 buffer mFind(buffer macro, monster mon) {
-	return macro.mStep(`while !monsterid {mon.id}`).mSkill($skill[Macrometeorite]).mStep('endwhile');
+	return macro.mStep(`while !monsterid {mon.id}`).mSkill($skill[Macrometeorite]).mStep("endwhile");
 }
 
 buffer mReplace(buffer macro, monster mon) {
-	return macro.mStep(`if monsterid {mon.id}`).mSkill($skill[Macrometeorite]).mStep('endif');
+	return macro.mStep(`if monsterid {mon.id}`).mSkill($skill[Macrometeorite]).mStep("endif");
 }
 
 buffer mCursing(buffer macro) {
@@ -103,41 +103,4 @@ buffer mBustGhost(buffer macro) {
 		.mSkill($skill[Shoot Ghost])
 		.mSkill($skill[Shoot Ghost])
 		.mSkill($skill[Trap Ghost]);
-}
-
-buffer mDmtSquare(buffer macro) {
-	return macro
-		.mEnsureMonster($location[The Deep Machine Tunnels])
-		.mBanish($monster[Perceiver of Sensations], $skill[Reflex Hammer])
-		.mReplace($monster[Thinker of Thoughts])
-		.mBanish($monster[Perceiver of Sensations], $skill[Reflex Hammer])
-		.mEnsureMonster($monster[Performer of Actions])
-		.mCursing()
-		.mSkill($skill[Disintegrate]);
-}
-
-buffer mDmtCircle(buffer macro) {
-	return macro
-		.mEnsureMonster($location[The Deep Machine Tunnels])
-		.mBanish($monster[Performer of Actions], $skill[Reflex Hammer])
-		.mReplace($monster[Perceiver of Sensations])
-		.mBanish($monster[Performer of Actions], $skill[Reflex Hammer])
-		.mEnsureMonster($monster[Thinker of Thoughts])
-		.mCursing()
-		.mItem($item[abstraction: action])
-		.mSkill($skill[Feel Envy])
-		.mCandyKill();
-}
-
-buffer mDmtTriangle(buffer macro) {
-	return macro
-		.mEnsureMonster($location[The Deep Machine Tunnels])
-		.mBanish($monster[Performer of Actions], $skill[Reflex Hammer])
-		.mReplace($monster[Thinker of Thoughts])
-		.mBanish($monster[Performer of Actions], $skill[Reflex Hammer])
-		.mEnsureMonster($monster[Perceiver of Sensations])
-		.mCursing()
-		.mItem($item[abstraction: thought])
-		.mSkill($skill[portscan])
-		.mCandyKill();
 }
