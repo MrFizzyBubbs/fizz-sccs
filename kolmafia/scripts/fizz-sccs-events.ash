@@ -436,8 +436,7 @@ void spitAndMeteorUngulith() {
 		equip($item[Fourth of May Cosplay Saber]);
 		use_familiar($familiar[Melodramedary]);
 		ensureHp();
-		visit_url("place.php?whichplace=chateau&action=chateau_painting");
-		run_combat(mNew()
+		reminisce($monster[ungulith], mNew()
 			.mTrySkill($skill[%fn\, spit on me!])
 			.mSkill($skill[Meteor Shower])
 			.mSkill($skill[Use the Force]));

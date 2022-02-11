@@ -66,3 +66,11 @@ boolean sausageFightGuaranteed() {
     int nextGuaranteed = get_property("_lastSausageMonsterTurn").to_int() + 4 + goblinsFought * 3 + max(0, goblinsFought - 5) ** 3;
     return total_turns_played() >= nextGuaranteed;
 }
+
+void reminisce(monster mon, string macro) {
+	if (have($item[combat lover's locket])) {
+		visit_url('inventory.php?reminisce=1', false, true);
+		visit_url(`choice.php?pwd&whichchoice=1463&option=1&mid={mon.id}`, true, true);
+		run_combat(macro);
+	}
+}
