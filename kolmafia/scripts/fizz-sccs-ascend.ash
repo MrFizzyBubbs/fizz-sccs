@@ -19,19 +19,22 @@ void prepareAscension(item workshed, item garden, item eudora, item chateauDesk,
 	boolean [item] desks = $items[fancy stationery set, Swiss piggy bank, continental juice bar];
 	if (!(get_chateau() contains chateauDesk)) {
 		assert(desks contains chateauDesk, `Invalid chateau desk: {chateauDesk}`);
-		assert(retrieve_item(1, chateauDesk) && use(1, chateauDesk) && get_chateau() contains chateauDesk, `We tried, but were unable to change your chateau desk to {chateauDesk}. Probably.`);
+		buy(1, chateauDesk);
+		assert(get_chateau() contains chateauDesk, `We tried, but were unable to change your chateau desk to {chateauDesk}. Probably.`);
 	}
 	
 	boolean [item] ceilings = $items[antler chandelier, ceiling fan, artificial skylight];
 	if (!(get_chateau() contains chateauCeiling)) {
 		assert(ceilings contains chateauCeiling, `Invalid chateau ceiling: {chateauCeiling}`);
-		assert(retrieve_item(1, chateauCeiling) && use(1, chateauCeiling) && get_chateau() contains chateauCeiling, `We tried, but were unable to change your chateau ceiling to {chateauCeiling}. Probably.`);
+		buy(1, chateauCeiling);
+		assert(get_chateau() contains chateauCeiling, `We tried, but were unable to change your chateau ceiling to {chateauCeiling}. Probably.`);
 	}
 	
 	boolean [item] nightstands = $items[foreign language tapes, bowl of potpourri, electric muscle stimulator];
 	if (!(get_chateau() contains chateauNightstand)) {
 		assert(nightstands contains chateauNightstand, `Invalid chateau nighstand: {chateauNightstand}`);
-		assert(retrieve_item(1, chateauNightstand) && use(1, chateauNightstand) && get_chateau() contains chateauNightstand, `We tried, but were unable to change your chateau nightstand to {chateauNightstand}. Probably.`);
+		buy(1, chateauNightstand);
+		assert(get_chateau() contains chateauNightstand, `We tried, but were unable to change your chateau nightstand to {chateauNightstand}. Probably.`);
 	}
 }
 
