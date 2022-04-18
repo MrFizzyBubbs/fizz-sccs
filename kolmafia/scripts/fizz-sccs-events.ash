@@ -387,6 +387,7 @@ void doNEP() {
 		adv1($location[The Neverending Party], -1, mNew()
 			.mCursing()
 			.mTrySkill($skill[Feel Pride])
+			.mTrySkill($skill[Bowl Sideways])
 			.mCandyKill());
 	}
 }
