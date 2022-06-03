@@ -6,7 +6,7 @@
 
 Run this command in KoLmafia's graphical CLI:
 ```
-svn checkout https://github.com/MrFizzyBubbs/fizz-sccs/branches/master/KoLmafia
+svn checkout https://github.com/MrFizzyBubbs/fizz-sccs/branches/main/kolmafia
 ```
 
 ## Requirements
