@@ -11,7 +11,7 @@ svn checkout https://github.com/MrFizzyBubbs/fizz-sccs/branches/main/kolmafia
 
 ## Requirements
 
-1. Acces to a Slimetube with [Mother Slime](https://kol.coldfront.net/thekolwiki/index.php/Showdown) ready
+1. Access to a Slimetube with [Mother Slime](https://kol.coldfront.net/thekolwiki/index.php/Showdown) ready
 2. Access to a fully stocked clan [VIP Lounge](https://kol.coldfront.net/thekolwiki/index.php/VIP_Lounge)
 3. All 11 beach heads unlocked for the [Beach Comb](https://kol.coldfront.net/thekolwiki/index.php/Beach_Comb)
 4. A 100% Weapon damage favorite bird from the [Bird-a-Day calendar](https://kol.coldfront.net/thekolwiki/index.php/Bird-a-Day_calendar)
@@ -26,6 +26,8 @@ svn checkout https://github.com/MrFizzyBubbs/fizz-sccs/branches/main/kolmafia
 10. [Source Terminal](https://kol.coldfront.net/thekolwiki/index.php/Source_Terminal) fully upgraded
 11. [Spacegate Vaccination Machine](https://kol.coldfront.net/thekolwiki/index.php/Spacegate_Vaccination_Machine) with the Broad-Spectrum Vaccine unlocked
 12. All 150 [Witchess puzzles](https://kol.coldfront.net/thekolwiki/index.php/Witchess_Puzzles) completed
+13. Eudora set to [New-You Club Membership Form](https://kol.coldfront.net/thekolwiki/index.php/New-You_Club_Membership_Form)
+14. An [ungulith](https://kol.coldfront.net/thekolwiki/index.php/Ungulith) in your [combat lover's locket](https://kol.coldfront.net/thekolwiki/index.php/Combat_lover%27s_locket)
 
 The script can be run either in Aftercore, or in Community Service provided that the following are selected:
 
